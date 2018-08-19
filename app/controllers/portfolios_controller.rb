@@ -38,4 +38,24 @@ end
     @portfolio_item = Portfolio.find(params[:id])
   end 
 
+  def destroy
+    #this is going to perform the lookup
+    @portfolio_item = Portfolio.find(params[:id])
+    #Destroy/ delete the record
+     @portfolio_item.destroy
+     #Redirect
+    respond_to do |form|
+      form.html { redirect_to portfolios_url, notice: 'Record was successfully deleted.' }
+    end
+  end
+
 end
+
+
+
+
+
+
+
+
+
